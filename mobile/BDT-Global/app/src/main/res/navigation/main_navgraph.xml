@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navgraph"
+    app:startDestination="@id/loginFormFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.bdt_global.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_startFormFragment"
+            app:destination="@id/startFormFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_formInfoFragment"
+            app:destination="@id/formInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/formInfoFragment"
+        android:name="com.example.bdt_global.fragments.FormInfoFragment"
+        android:label="fragment_form_info"
+        tools:layout="@layout/fragment_form_info" />
+    <fragment
+        android:id="@+id/startFormFragment"
+        android:name="com.example.bdt_global.fragments.StartFormFragment"
+        android:label="fragment_start_form"
+        tools:layout="@layout/fragment_start_form">
+        <action
+            android:id="@+id/action_startFormFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.example.bdt_global.fragments.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question">
+        <argument
+            android:name="formType"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_questionFragment_to_resultsFragment"
+            app:destination="@id/resultsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultsFragment"
+        android:name="com.example.bdt_global.fragments.ResultsFragment"
+        android:label="fragment_results"
+        tools:layout="@layout/fragment_results">
+        <action
+            android:id="@+id/action_resultsFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/loginFormFragment"
+        android:name="com.example.bdt_global.fragments.LoginFormFragment"
+        android:label="LoginFormFragment"
+        tools:layout="@layout/fragment_login_form">>
+        <action
+            android:id="@+id/action_loginFormFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+</navigation>
