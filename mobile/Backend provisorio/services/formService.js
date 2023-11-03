@@ -8,14 +8,16 @@ async function getFormTypes() {
   try {
     const formTypes = [
       {
-        id: individualFormRepository.formId,
+        formSharingId: individualFormRepository.formId,
+        formPersonType: individualFormRepository.formPersonType,
         label: individualFormRepository.label,
-        type: individualFormRepository.formPersonType,
+        screenCount: individualFormRepository.screenCount,
       },
       {
-        id: enterpriseFormRepository.formId,
+        formSharingId: enterpriseFormRepository.formId,
+        formPersonType: enterpriseFormRepository.formPersonType,
         label: enterpriseFormRepository.label,
-        type: enterpriseFormRepository.formPersonType,
+        screenCount: enterpriseFormRepository.screenCount,
       },
     ]
     return {
@@ -69,7 +71,7 @@ async function getIndividualQuestionById(id) {
 
 async function getEnterpriseQuestionById(id) {
   try {
-    const nextQuestion = await enterpriseFormRepository.screens[id - 7];
+    const nextQuestion = await enterpriseFormRepository.screens[id - 1];
     return {
       response: "success",
       question: nextQuestion

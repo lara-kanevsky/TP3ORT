@@ -60,21 +60,24 @@ class StartFormFragment : Fragment() {
                 myFormOptions,
                 false
             ) as Button
-            myButton.id = formType.id
+            myButton.id = formType.formSharingId
             myButton.text = formType.label
 
             myButton.setOnClickListener {
-                goToFirstQuestion(formType.label, formType.type)
+                goToFirstQuestion(formType.formSharingId, formType.formPersonType, formType.label, formType.screenCount)
             }
 
             myFormOptions.addView(myButton)
         }
     }
 
-    private fun goToFirstQuestion(label: String, type: String) {
-        QuestionFragmentViewModel.setCurrentFormType(type)
-        //val action = StartFormFragmentDirections.actionStartFormFragmentToQuestionFragment(label)
-        //findNavController().navigate(action)
+    private fun goToFirstQuestion(formSharingId: Int, formPersonType: String, formLabel: String, formScreenCount: Int) {
+        QuestionFragmentViewModel.setCurrentFormSharingId(formSharingId)
+        QuestionFragmentViewModel.setCurrentFormType(formPersonType)
+        QuestionFragmentViewModel.setCurrentFormLabel(formLabel)
+        QuestionFragmentViewModel.setCurrentFormScreenCount(formScreenCount)
+        val action = StartFormFragmentDirections.actionStartFormFragmentToQuestionFragment(formLabel)
+        findNavController().navigate(action)
     }
 
     private fun throwErrorDialog(text: String) {

@@ -47,7 +47,7 @@ class QuestionFragment : Fragment() {
         _binding = FragmentQuestionBinding.inflate(inflater, container, false)
         myAnswerBoxContainer = binding.myAnswerBoxContainer
 
-        //binding.tvFormType.text = QuestionFragmentArgs.fromBundle(requireArguments()).formType
+        binding.tvFormType.text = QuestionFragmentArgs.fromBundle(requireArguments()).formType
 
         lifecycleScope.launch {
             try {
@@ -131,9 +131,9 @@ class QuestionFragment : Fragment() {
     }
 
     private fun goToResults() {
-        //val action =
-        //    QuestionFragmentDirections.actionQuestionFragmentToResultsFragment()
-        //findNavController().navigate(action)
+        val action =
+            QuestionFragmentDirections.actionQuestionFragmentToResultsFragment()
+        findNavController().navigate(action)
     }
 
     private fun goToNextQuestionScreen() {
@@ -191,7 +191,7 @@ class QuestionFragment : Fragment() {
 
     private fun loadQuestionScreen(questionScreen: QuestionScreen) {
         QuestionFragmentViewModel.saveQuestion(questionScreen)
-        loadProgressBar(questionScreen.completePercentage)
+        loadProgressBar(QuestionFragmentViewModel.getProgress(questionScreen.screenId))
         loadQuestion(questionScreen.question)
         loadAnswerBox(questionScreen.answers)
         setButtonNextText()

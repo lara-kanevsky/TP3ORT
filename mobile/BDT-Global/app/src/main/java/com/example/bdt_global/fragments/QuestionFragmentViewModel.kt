@@ -16,12 +16,33 @@ object QuestionFragmentViewModel : ViewModel() {
     private var questionScreenHistory = mutableListOf<QuestionScreen>()
     private var userAnswers = mutableListOf<Option>()
     private var currentScreenId = -1
-    private var currentFormType = "error"
+    private var currentFormSharingId = -1
+    private var currentFormPersonType = "error"
+    private var currentFormLabel = "error"
+    private var currentFormScreenCount = -1
     private var isCurrentQuestionFinal = false
 
-    fun setCurrentFormType(type: String) {
-        if (!type.isNullOrBlank()) {
-            currentFormType = type
+    fun setCurrentFormSharingId(formSharingId: Int) {
+        if (formSharingId > 0) {
+            currentFormSharingId = formSharingId
+        }
+    }
+
+    fun setCurrentFormType(formPersonType: String) {
+        if (!formPersonType.isNullOrBlank()) {
+            currentFormPersonType = formPersonType
+        }
+    }
+
+    fun setCurrentFormLabel(formLabel: String) {
+        if (!formLabel.isNullOrBlank()) {
+            currentFormLabel = formLabel
+        }
+    }
+
+    fun setCurrentFormScreenCount(formScreenCount: Int) {
+        if (formScreenCount > 0) {
+            currentFormScreenCount = formScreenCount + 1
         }
     }
 
@@ -31,6 +52,10 @@ object QuestionFragmentViewModel : ViewModel() {
 
     fun getQuestionScreenHistorySize(): Int {
         return questionScreenHistory.size
+    }
+
+    fun getProgress(questionId: Int): Int {
+        return questionId * 100 / currentFormScreenCount
     }
 
     fun saveQuestion(questionScreen: QuestionScreen) {
@@ -61,7 +86,7 @@ object QuestionFragmentViewModel : ViewModel() {
 
         lateinit var firstQuestionScreen: QuestionScreen
         viewModelScope.async {
-            firstQuestionScreen = FormServices.getFirstQuestionScreen(currentFormType)
+            firstQuestionScreen = FormServices.getFirstQuestionScreen(currentFormPersonType)
             currentScreenId = firstQuestionScreen.screenId
             isCurrentQuestionFinal = firstQuestionScreen.isFinal
         }.await()
@@ -84,7 +109,7 @@ object QuestionFragmentViewModel : ViewModel() {
         currentQuestionScreen.completeAnswers(currentQuestionScreenAnswers)
         viewModelScope.async {
             nextQuestionScreen = FormServices.getNextQuestionScreen(
-                currentFormType,
+                currentFormPersonType,
                 currentScreenId,
                 currentQuestionScreen.answers.getAnswers()
             )
@@ -100,7 +125,11 @@ object QuestionFragmentViewModel : ViewModel() {
         val skipOption = getSkipOption(currentQuestionScreen.answers.getOptions())
         viewModelScope.async {
             nextQuestionScreen =
-                FormServices.getNextQuestionScreen(currentFormType, currentScreenId, skipOption)
+                FormServices.getNextQuestionScreen(
+                    currentFormPersonType,
+                    currentScreenId,
+                    skipOption
+                )
             currentScreenId = nextQuestionScreen.screenId
             isCurrentQuestionFinal = nextQuestionScreen.isFinal
         }.await()
@@ -109,27 +138,29 @@ object QuestionFragmentViewModel : ViewModel() {
 
     private fun getSkipOption(options: List<Option>): List<Option> {
         if (!options.isNullOrEmpty()) {
-            return listOf(
-                StringOption(
-                    options[0].type,
-                    options[0].optionId,
-                    "-1",
-                    options[0].value,
-                    options[0].nextScreenNavigationId,
-                    options[0].nextDefaultScreenNavigationId,
-                    options[0].screenId,
-                    options[0].measureUnit
-                )
-            )
+            return listOf(buildSkipOption(options[0]))
         } else {
             throw Error("There are no options")
         }
     }
 
+    private fun buildSkipOption(option: Option): Option {
+        return StringOption(
+            option.type,
+            option.optionId,
+            "-1",
+            option.value,
+            option.nextScreenNavigationId,
+            option.nextDefaultScreenNavigationId,
+            option.screenId,
+            option.measureUnit
+        )
+    }
+
     suspend fun getResults(): ResultsResponse {
         lateinit var myResults: ResultsResponse
         viewModelScope.async {
-            myResults = FormServices.getResults(currentFormType, userAnswers)
+            myResults = FormServices.getResults(currentFormPersonType, userAnswers)
             questionScreenHistory.clear()
             userAnswers.clear()
         }.await()

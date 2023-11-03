@@ -10,6 +10,5 @@ open class OptionResponse(
     @SerializedName("nextScreenNavigationId") var nextScreenNavigationId: String,
     @SerializedName("nextDefaultScreenNavigationId") var nextDefaultScreenNavigationId: String,
     @SerializedName("screenId") var screenId: Int,
-    @SerializedName("measureUnit") var measureUnit: String,
-    @SerializedName("userInput") var userInput: Float = -1f
+    @SerializedName("measureUnit") var measureUnit: String
 )

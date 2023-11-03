@@ -12,6 +12,7 @@ class IndividualFormRepository {
         this.formSharingId = "1";
         this.adminCreatorId = "1";
         this.isActive = true;
+        this.screenCount = 6;
         this.screens = [];
 
         this.screens.push(
@@ -97,58 +98,59 @@ class EnterpriseFormRepository {
         this.formSharingId = "2";
         this.adminCreatorId = "2";
         this.isActive = true;
+        this.screenCount = 5;
         this.screens = [];
 
         this.screens.push(
             new Screen(
-                "EditText", 7, "7", 2, 1, false, Category.CONSUMPTION, "Detalle las cantidades consumidas para cada tipo de combustible",
+                "EditText", 1, "1", 2, 1, false, Category.CONSUMPTION, "Detalle las cantidades consumidas para cada tipo de combustible",
                 [
-                    new EditText("EditText", 26, "Gas natural", 1.0, "8", "8", 7, "m3"),
-                    new EditText("EditText", 27, "Diesel/gasoil", 1.0, "8", "8", 7, "lts"),
-                    new EditText("EditText", 28, "GLP/gas envasado", 1.0, "8", "8", 7, "kg"),
-                    new EditText("EditText", 29, "Nafta", 1.0, "8", "8", 7, "lts"),
+                    new EditText("EditText", 26, "Gas natural", 1.0, "2", "2", 1, "m3"),
+                    new EditText("EditText", 27, "Diesel/gasoil", 1.0, "2", "2", 1, "lts"),
+                    new EditText("EditText", 28, "GLP/gas envasado", 1.0, "2", "2", 1, "kg"),
+                    new EditText("EditText", 29, "Nafta", 1.0, "2", "2", 1, "lts"),
                 ],
             )
         );
 
         this.screens.push(
             new Screen(
-                "EditText", 8, "8", 2, 20, false, Category.CONSUMPTION, "Detalle la cantidad de electricidad consumida en todas las instalaciones",
+                "EditText", 2, "2", 2, 20, false, Category.CONSUMPTION, "Detalle la cantidad de electricidad consumida en todas las instalaciones",
                 [
-                    new EditText("EditText", 30, "Electricidad", 1.0, "9", "9", 8, "kWs"),
+                    new EditText("EditText", 30, "Electricidad", 1.0, "3", "3", 2, "kWs"),
                 ],
             )
         );
 
         this.screens.push(
             new Screen(
-                "EditText", 9, "9", 2, 40, false, Category.TRANSPORT, "Estime la sumatoria de km recorridos por sus empleados en cada medio de transporte",
+                "EditText", 3, "3", 2, 40, false, Category.TRANSPORT, "Estime la sumatoria de km recorridos por sus empleados en cada medio de transporte",
                 [
-                    new EditText("EditText", 31, "Autobus", 1.0, "10", "10", 9, "km"),
-                    new EditText("EditText", 32, "Tren", 1.0, "10", "10", 9, "km"),
-                    new EditText("EditText", 33, "Metro", 1.0, "10", "10", 9, "km"),
-                    new EditText("EditText", 34, "Auto", 1.0, "10", "10", 9, "km"),
-                    new EditText("EditText", 35, "Moto", 1.0, "10", "10", 9, "km"),
-                    new EditText("EditText", 36, "Bicicleta", 1.0, "10", "10", 9, "km"),
-                    new EditText("EditText", 37, "Caminando", 1.0, "10", "10", 9, "km"),
+                    new EditText("EditText", 31, "Autobus", 1.0, "4", "4", 3, "km"),
+                    new EditText("EditText", 32, "Tren", 1.0, "4", "4", 3, "km"),
+                    new EditText("EditText", 33, "Metro", 1.0, "4", "4", 3, "km"),
+                    new EditText("EditText", 34, "Auto", 1.0, "4", "4", 3, "km"),
+                    new EditText("EditText", 35, "Moto", 1.0, "4", "4", 3, "km"),
+                    new EditText("EditText", 36, "Bicicleta", 1.0, "4", "4", 3, "km"),
+                    new EditText("EditText", 37, "Caminando", 1.0, "4", "4", 3, "km"),
                 ],
             )
         );
 
         this.screens.push(
             new Screen(
-                "EditText", 10, "10", 2, 60, false, Category.CONSUMPTION, "¿Cuál fue la cantidad de kg de papel consumida por la empresa?",
+                "EditText", 4, "4", 2, 60, false, Category.CONSUMPTION, "¿Cuál fue la cantidad de kg de papel consumida por la empresa?",
                 [
-                    new EditText("EditText", 38, "Papel", 1.0, "11", "11", 10, "kg"),
+                    new EditText("EditText", 38, "Papel", 1.0, "5", "5", 4, "kg"),
                 ],
             )
         );
 
         this.screens.push(
             new Screen(
-                "EditText", 11, "11", 2, 80, true, Category.HABITS, "¿Cuál es la cantidad de días a la semana con modalidad home office?",
+                "EditText", 5, "5", 2, 80, true, Category.HABITS, "¿Cuál es la cantidad de días a la semana con modalidad home office?",
                 [
-                    new EditText("EditText", 39, "Días", 1.0, "-1", "-1", 11, "días"),
+                    new EditText("EditText", 39, "Días", 1.0, "-1", "-1", 5, "días"),
                 ],
             )
         );

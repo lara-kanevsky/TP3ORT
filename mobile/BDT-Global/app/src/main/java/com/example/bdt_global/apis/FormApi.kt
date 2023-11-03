@@ -3,7 +3,6 @@ package com.example.bdt_global.apis
 import com.example.bdt_global.entities.Option
 import com.example.bdt_global.entities.responseEntities.FormTypesDataResponse
 import com.example.bdt_global.entities.responseEntities.QuestionScreenDataResponse
-import com.example.bdt_global.entities.responseEntities.QuestionScreenResponse
 import com.example.bdt_global.entities.responseEntities.ResultsDataResponse
 import retrofit2.Response
 import retrofit2.http.GET

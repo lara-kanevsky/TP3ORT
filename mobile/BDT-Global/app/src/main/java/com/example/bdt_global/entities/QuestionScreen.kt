@@ -1,5 +1,6 @@
 package com.example.bdt_global.entities
 
+import com.example.bdt_global.entities.responseEntities.EditTextResponse
 import com.example.bdt_global.entities.responseEntities.OptionResponse
 import com.example.bdt_global.entities.responseEntities.QuestionScreenResponse
 
@@ -8,7 +9,6 @@ class QuestionScreen(
     var screenId: Int,
     var navigationId: String,
     var formId: Int,
-    var completePercentage: Int,
     var isFinal: Boolean,
     var category: Category,
     var question: String,
@@ -23,7 +23,6 @@ class QuestionScreen(
                     screenId,
                     navigationId,
                     formId,
-                    completePercentage,
                     isFinal,
                     category,
                     question,
@@ -56,7 +55,7 @@ class QuestionScreen(
                 option.measureUnit
             )
         } else if (option.type == "EditText") {
-            optionResponse = OptionResponse(
+            optionResponse = EditTextResponse(
                 option.type, option.optionId,
                 option.label,
                 option.value,
