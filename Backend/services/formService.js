@@ -86,9 +86,9 @@ async function getResults(userAnswers) {
   try {
     // Simulated calculation
     var myTonsCO2 = userAnswers.length + (userAnswers.length / 10)
-    var myCarobPerYearEquivalence = userAnswers.length + 1
-    var myKmByCarEquivalence = userAnswers.length * 100 ** 2 - (userAnswers.length * 10) + (userAnswers.length + 2) ** 2
-    var myFlightsEquivalence = userAnswers.length + 3
+    var myCarobPerYearEquivalence = (userAnswers.length + 1) * userAnswers.length
+    var myKmByCarEquivalence = (userAnswers.length * 7 ** 2 - (userAnswers.length * 17) + (userAnswers.length + 2) ** 2) * userAnswers.length
+    var myFlightsEquivalence = userAnswers.length * userAnswers.length
     //
 
     const results = {
