@@ -53,12 +53,12 @@ class QuestionFragment : Fragment() {
             try {
                 loadQuestionScreen(QuestionFragmentViewModel.getFirstQuestionScreen())
             } catch (e: java.net.SocketTimeoutException) {
-                Log.i("IBEAPP", "SocketTimeoutException: ${e.message}")
-                throwErrorDialog(getString(R.string.connection_error))
+                Log.i("TP3ORT", "SocketTimeoutException: ${e.message}")
+                throwErrorDialog(getString(R.string.error_connection))
             } catch (e: Error) {
-                Log.i("IBEAPP", e.toString())
+                Log.i("TP3ORT", e.toString())
             } catch (t: Throwable) {
-                Log.i("IBEAPP", t.toString())
+                Log.i("TP3ORT", t.toString())
             }
         }
 
@@ -145,12 +145,12 @@ class QuestionFragment : Fragment() {
                 try {
                     loadQuestionScreen(QuestionFragmentViewModel.getNextQuestionScreen(answers))
                 } catch (e: java.net.SocketTimeoutException) {
-                    Log.i("IBEAPP", "SocketTimeoutException: ${e.message}")
-                    throwErrorDialog(getString(R.string.connection_error))
+                    Log.i("TP3ORT", "SocketTimeoutException: ${e.message}")
+                    throwErrorDialog(getString(R.string.error_connection))
                 } catch (e: Error) {
-                    Log.i("IBEAPP", e.toString())
+                    Log.i("TP3ORT", e.toString())
                 } catch (t: Throwable) {
-                    Log.i("IBEAPP", t.toString())
+                    Log.i("TP3ORT", t.toString())
                 }
             }
         } catch (e: Error) {
@@ -164,12 +164,12 @@ class QuestionFragment : Fragment() {
                 try {
                     loadQuestionScreen(QuestionFragmentViewModel.skipQuestion())
                 } catch (e: java.net.SocketTimeoutException) {
-                    Log.i("IBEAPP", "SocketTimeoutException: ${e.message}")
-                    throwErrorDialog(getString(R.string.connection_error))
+                    Log.i("TP3ORT", "SocketTimeoutException: ${e.message}")
+                    throwErrorDialog(getString(R.string.error_connection))
                 } catch (e: Error) {
-                    Log.i("IBEAPP", e.toString())
+                    Log.i("TP3ORT", e.toString())
                 } catch (t: Throwable) {
-                    Log.i("IBEAPP", t.toString())
+                    Log.i("TP3ORT", t.toString())
                 }
             }
         } catch (e: Error) {
@@ -180,11 +180,11 @@ class QuestionFragment : Fragment() {
     private fun setButtonNextText() {
         when (QuestionFragmentViewModel.isCurrentQuestionFinal()) {
             true -> {
-                binding.buttonNext.text = getString(R.string.question_fragment_finish_button)
+                binding.buttonNext.text = getString(R.string.question_fragment_button_finish)
             }
 
             false -> {
-                binding.buttonNext.text = getString(R.string.question_fragment_next_button)
+                binding.buttonNext.text = getString(R.string.question_fragment_button_next)
             }
         }
     }
@@ -232,14 +232,14 @@ class QuestionFragment : Fragment() {
             radioButton.isChecked = option.isSelected
 
             val tagValues = HashMap<String, Any>()
-            tagValues[getString(R.string.view_tag_type_key)] = option.type
-            tagValues[getString(R.string.view_tag_value_key)] = option.value
-            tagValues[getString(R.string.view_tag_next_screen_navigation_id_key)] =
+            tagValues[getString(R.string.view_tag_key_type)] = option.type
+            tagValues[getString(R.string.view_tag_key_value)] = option.value
+            tagValues[getString(R.string.view_tag_key_next_screen_navigation_id)] =
                 option.nextScreenNavigationId
-            tagValues[getString(R.string.view_tag_next_default_screen_navigation_id_key)] =
+            tagValues[getString(R.string.view_tag_key_next_default_screen_navigation_id)] =
                 option.nextDefaultScreenNavigationId
-            tagValues[getString(R.string.view_tag_screen_id_key)] = option.screenId
-            tagValues[getString(R.string.view_tag_measure_unit_key)] = option.measureUnit
+            tagValues[getString(R.string.view_tag_key_screen_id)] = option.screenId
+            tagValues[getString(R.string.view_tag_key_measure_unit)] = option.measureUnit
             radioButton.tag = tagValues
 
             myAnswerBox.addView(radioButton)
@@ -263,14 +263,14 @@ class QuestionFragment : Fragment() {
             editText.setText(option.userInput)
 
             val tagValues = HashMap<String, Any>()
-            tagValues[getString(R.string.view_tag_type_key)] = option.type
-            tagValues[getString(R.string.view_tag_value_key)] = option.value
-            tagValues[getString(R.string.view_tag_next_screen_navigation_id_key)] =
+            tagValues[getString(R.string.view_tag_key_type)] = option.type
+            tagValues[getString(R.string.view_tag_key_value)] = option.value
+            tagValues[getString(R.string.view_tag_key_next_screen_navigation_id)] =
                 option.nextScreenNavigationId
-            tagValues[getString(R.string.view_tag_next_default_screen_navigation_id_key)] =
+            tagValues[getString(R.string.view_tag_key_next_default_screen_navigation_id)] =
                 option.nextDefaultScreenNavigationId
-            tagValues[getString(R.string.view_tag_screen_id_key)] = option.screenId
-            tagValues[getString(R.string.view_tag_measure_unit_key)] = option.measureUnit
+            tagValues[getString(R.string.view_tag_key_screen_id)] = option.screenId
+            tagValues[getString(R.string.view_tag_key_measure_unit)] = option.measureUnit
             editText.tag = tagValues
 
             myAnswerBox.addView(editText)

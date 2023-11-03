@@ -46,7 +46,7 @@ class ResultsFragment : Fragment() {
     }
 
     private fun onClickButtonReturnToStart() {
-        val action = ResultsFragmentDirections.actionResultsFragmentToHomeFragment()
+        val action = ResultsFragmentDirections.actionResultsFragmentToWelcomeFragment()
         findNavController().navigate(action)
     }
 

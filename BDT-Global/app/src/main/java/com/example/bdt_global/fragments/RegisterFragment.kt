@@ -6,25 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.bdt_global.databinding.FragmentHomeBinding
+import com.example.bdt_global.databinding.FragmentRegisterBinding
 
-class HomeFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
+    private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-        binding.buttonLogIn.setOnClickListener {
-            goToLogIn()
-        }
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
 
         binding.buttonRegister.setOnClickListener {
-            goToRegister()
+            goToLogIn()
         }
 
         return binding.root
@@ -32,13 +28,7 @@ class HomeFragment : Fragment() {
 
     private fun goToLogIn() {
         val action =
-            HomeFragmentDirections.actionHomeFragmentToLogInFragment()
-        findNavController().navigate(action)
-    }
-
-    private fun goToRegister() {
-        val action =
-            HomeFragmentDirections.actionHomeFragmentToRegisterFragment()
+            RegisterFragmentDirections.actionRegisterFragmentToLogInFragment()
         findNavController().navigate(action)
     }
 

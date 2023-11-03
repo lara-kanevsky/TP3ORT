@@ -34,12 +34,12 @@ class StartFormFragment : Fragment() {
             try {
                 loadFormTypes()
             } catch (e: java.net.SocketTimeoutException) {
-                Log.i("IBEAPP", "SocketTimeoutException: ${e.message}")
-                throwErrorDialog(getString(R.string.connection_error))
+                Log.i("TP3ORT", "SocketTimeoutException: ${e.message}")
+                throwErrorDialog(getString(R.string.error_connection))
             } catch (e: Error) {
-                Log.i("IBEAPP", e.toString())
+                Log.i("TP3ORT", e.toString())
             } catch (t: Throwable) {
-                Log.i("IBEAPP", t.toString())
+                Log.i("TP3ORT", t.toString())
             }
         }
 

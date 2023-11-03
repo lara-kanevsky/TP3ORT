@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bdt_background"
-    tools:context=".fragments.HomeFragment">
+    tools:context=".fragments.RegisterFragment">
 
     <ImageView
         android:id="@+id/ivHeader"
@@ -17,22 +17,47 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/buttonLogIn"
-        android:layout_width="135dp"
+    <EditText
+        android:id="@+id/etUserMail"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="130dp"
-        android:background="@color/white"
-        android:backgroundTint="@color/white"
-        android:ellipsize="none"
-        android:foregroundTint="#FFFFFF"
-        android:scaleX="1.5"
-        android:scaleY="1.5"
-        android:text="@string/auth_button_log_in"
-        android:textColor="@color/white"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="10dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:backgroundTint="#FFFFFF"
+        android:backgroundTintMode="add"
+        android:ems="10"
+        android:hint="@string/auth_hint_mail"
+        android:inputType="text"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@id/etUserPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivHeader" />
+
+    <EditText
+        android:id="@+id/etUserPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="100dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:backgroundTint="#FFFFFF"
+        android:backgroundTintMode="add"
+        android:ems="10"
+        android:hint="@string/auth_hint_password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUserMail" />
 
     <Button
         android:id="@+id/buttonRegister"

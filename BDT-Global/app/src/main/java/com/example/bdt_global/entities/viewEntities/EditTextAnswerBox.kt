@@ -30,7 +30,7 @@ class EditTextAnswerBox(
     override fun checkCompleted(): Boolean {
         val isCompleted = isCompleted()
         if (!isCompleted) {
-            throw Error(context.getString(string.edit_text_answer_box_is_completed_error))
+            throw Error(context.getString(string.error_edit_text_answer_box_is_completed))
         }
         return isCompleted
     }
@@ -41,16 +41,16 @@ class EditTextAnswerBox(
     }
 
     private fun buildNumberInput(option: EditText): NumberInput {
-        val type = (option.tag as HashMap<*, *>)[context.getString(string.view_tag_type_key)] as String
+        val type = (option.tag as HashMap<*, *>)[context.getString(string.view_tag_key_type)] as String
         val optionId = option.id
         val label = option.hint.toString()
         val value =
-            (option.tag as HashMap<*, *>)[context.getString(string.view_tag_value_key)] as Float
-        val nextScreenNavigationId = (option.tag as HashMap<*, *>)[context.getString(string.view_tag_next_screen_navigation_id_key)] as String
-        val nextDefaultScreenNavigationId = (option.tag as HashMap<*, *>)[context.getString(string.view_tag_next_default_screen_navigation_id_key)] as String
+            (option.tag as HashMap<*, *>)[context.getString(string.view_tag_key_value)] as Float
+        val nextScreenNavigationId = (option.tag as HashMap<*, *>)[context.getString(string.view_tag_key_next_screen_navigation_id)] as String
+        val nextDefaultScreenNavigationId = (option.tag as HashMap<*, *>)[context.getString(string.view_tag_key_next_default_screen_navigation_id)] as String
         val screenId =
-            (option.tag as HashMap<*, *>)[context.getString(string.view_tag_screen_id_key)] as Int
-        val measureUnit = (option.tag as HashMap<*, *>)[context.getString(string.view_tag_measure_unit_key)] as String
+            (option.tag as HashMap<*, *>)[context.getString(string.view_tag_key_screen_id)] as Int
+        val measureUnit = (option.tag as HashMap<*, *>)[context.getString(string.view_tag_key_measure_unit)] as String
         val userInput = option.text.toString().toFloat()
 
         return NumberInput(type, optionId, label, value, nextScreenNavigationId, nextDefaultScreenNavigationId, screenId, measureUnit, userInput.toString())

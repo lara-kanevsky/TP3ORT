@@ -3,19 +3,56 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navgraph"
-    app:startDestination="@id/loginFormFragment">
+    app:startDestination="@id/homeFragment">
 
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.bdt_global.fragments.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
-            android:id="@+id/action_homeFragment_to_startFormFragment"
+            android:id="@+id/action_homeFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.bdt_global.fragments.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_registerFragment_to_logInFragment"
+            app:destination="@id/logInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/logInFragment"
+        android:name="com.example.bdt_global.fragments.LogInFragment"
+        android:label="fragment_log_in"
+        tools:layout="@layout/fragment_log_in">
+        <action
+            android:id="@+id/action_logInFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@+id/welcomeFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.bdt_global.fragments.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome">
+        <action
+            android:id="@+id/action_welcomeFragment_to_startFormFragment"
             app:destination="@id/startFormFragment" />
         <action
-            android:id="@+id/action_homeFragment_to_formInfoFragment"
+            android:id="@+id/action_welcomeFragment_to_formInfoFragment"
             app:destination="@id/formInfoFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@+id/homeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/formInfoFragment"
@@ -49,18 +86,9 @@
         android:label="fragment_results"
         tools:layout="@layout/fragment_results">
         <action
-            android:id="@+id/action_resultsFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpTo="@+id/homeFragment"
-            app:popUpToInclusive="true"/>
-    </fragment>
-    <fragment
-        android:id="@+id/loginFormFragment"
-        android:name="com.example.bdt_global.fragments.LoginFormFragment"
-        android:label="LoginFormFragment"
-        tools:layout="@layout/fragment_login_form">>
-        <action
-            android:id="@+id/action_loginFormFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            android:id="@+id/action_resultsFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popUpTo="@+id/welcomeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
