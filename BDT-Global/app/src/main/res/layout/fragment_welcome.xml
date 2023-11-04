@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,48 +8,76 @@
     tools:context=".fragments.WelcomeFragment">
 
     <ImageView
+        android:id="@+id/ivHeader"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:layout_gravity="center|top"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bdt_header" />
+        android:background="@drawable/bdt_header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="150dp"
-        android:text="@string/welcome_fragment_title"
+        android:text="@string/home_fragment_title"
         android:textAlignment="center"
         android:textColor="@color/white"
-        android:textSize="40sp" />
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="260dp"
         android:layout_height="60dp"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="210dp"
+        android:layout_marginTop="20dp"
         android:text="@string/welcome_fragment_button_start_form"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMyData"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <Button
+        android:id="@+id/buttonMyData"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:layout_gravity="bottom|center"
+        android:text="@string/welcome_fragment_button_my_data"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonMoreInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonStart" />
 
     <Button
         android:id="@+id/buttonMoreInfo"
         android:layout_width="260dp"
         android:layout_height="60dp"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="130dp"
         android:text="@string/welcome_fragment_button_more_info"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonMyData" />
 
     <Button
         android:id="@+id/buttonLogOut"
         android:layout_width="260dp"
         android:layout_height="60dp"
         android:layout_gravity="bottom|center"
-        android:layout_marginBottom="50dp"
+        android:layout_marginBottom="30dp"
         android:text="@string/auth_button_log_out"
-        android:textSize="25sp" />
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

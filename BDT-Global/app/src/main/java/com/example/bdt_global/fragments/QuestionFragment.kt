@@ -310,8 +310,11 @@ class QuestionFragment : Fragment() {
             val dialog = Dialog(requireContext())
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
             dialog.setCancelable(false)
-            dialog.setContentView(R.layout.dialog_confirm_exit_form)
+            dialog.setContentView(R.layout.dialog_confirm)
             dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+
+            val question: TextView = dialog.findViewById(R.id.tvConfirmQuestion)
+            question.text = getString(R.string.question_fragment_confirm_exit)
 
             val yesButton: Button = dialog.findViewById(R.id.buttonYes)
             val noButton: Button = dialog.findViewById(R.id.buttonNo)
@@ -330,4 +333,5 @@ class QuestionFragment : Fragment() {
             dialog.show()
         }
     }
+
 }

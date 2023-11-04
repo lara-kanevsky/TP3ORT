@@ -46,6 +46,9 @@
             android:id="@+id/action_welcomeFragment_to_startFormFragment"
             app:destination="@id/startFormFragment" />
         <action
+            android:id="@+id/action_welcomeFragment_to_myDataFragment"
+            app:destination="@id/myDataFragment" />
+        <action
             android:id="@+id/action_welcomeFragment_to_formInfoFragment"
             app:destination="@id/formInfoFragment" />
         <action
@@ -54,6 +57,11 @@
             app:popUpTo="@+id/homeFragment"
             app:popUpToInclusive="true" />
     </fragment>
+    <fragment
+        android:id="@+id/myDataFragment"
+        android:name="com.example.bdt_global.fragments.MyDataFragment"
+        android:label="fragment_my_data"
+        tools:layout="@layout/fragment_my_data" />
     <fragment
         android:id="@+id/formInfoFragment"
         android:name="com.example.bdt_global.fragments.FormInfoFragment"
