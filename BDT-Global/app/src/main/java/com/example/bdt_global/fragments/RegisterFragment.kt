@@ -29,16 +29,19 @@ class RegisterFragment : Fragment() {
     }
 
     private fun register() {
-        var email = binding.etUserMail.text.toString()
+        var name = binding.etUserName.text.toString()
+        var surname = binding.etUserSurname.text.toString()
+        var dni = binding.etUserDni.text.toString()
+        var mail = binding.etUserMail.text.toString()
         var password = binding.etUserPassword.text.toString()
-        if (email.isNullOrBlank() || password.isNullOrBlank()) {
+        if (name.isNullOrBlank() || surname.isNullOrBlank() || dni.isNullOrBlank() || mail.isNullOrBlank() || password.isNullOrBlank()) {
             Snackbar.make(
                 binding.root,
-                "Ingrese credenciales válidas",
+                "Complete todos los campos",
                 Snackbar.LENGTH_SHORT
             ).show()
         } else {
-            LogInViewModel.register(email, password)
+            UserViewModel.register(name, surname, dni.toInt(), mail, password)
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         goToLogIn()

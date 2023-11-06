@@ -73,7 +73,7 @@ class WelcomeFragment : Fragment() {
     }
 
     private fun logOut() {
-        LogInViewModel.logOut()
+        UserViewModel.logOut()
         val action =
             WelcomeFragmentDirections.actionWelcomeFragmentToHomeFragment()
         findNavController().navigate(action)

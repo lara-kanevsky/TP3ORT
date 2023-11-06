@@ -3,8 +3,11 @@
     <string name="auth_button_log_in">Iniciar sesión</string>
     <string name="auth_button_log_out">Cerrar sesión</string>
     <string name="auth_button_register">Registrarse</string>
+    <string name="auth_hint_dni">DNI</string>
     <string name="auth_hint_mail">Correo electrónico</string>
+    <string name="auth_hint_name">Nombre</string>
     <string name="auth_hint_password">Contraseña</string>
+    <string name="auth_hint_surname">Apellido</string>
     <string name="error_button_understood">Entendido</string>
     <string name="error_connection">No es posible establecer la conexión</string>
     <string name="error_edit_text_answer_box_is_completed">Complete todos los campos</string>

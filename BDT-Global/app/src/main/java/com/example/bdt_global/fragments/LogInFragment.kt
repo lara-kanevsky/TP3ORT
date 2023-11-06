@@ -9,9 +9,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.bdt_global.databinding.FragmentLogInBinding
 import com.google.android.material.snackbar.Snackbar
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 
 class LogInFragment : Fragment() {
 
@@ -41,7 +38,7 @@ class LogInFragment : Fragment() {
                 Snackbar.LENGTH_SHORT
             ).show()
         } else {
-            LogInViewModel.logIn(email, password)
+            UserViewModel.logIn(email, password)
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         goToWelcome()
@@ -61,12 +58,6 @@ class LogInFragment : Fragment() {
         val action =
             LogInFragmentDirections.actionLogInFragmentToWelcomeFragment()
         findNavController().navigate(action)
-    }
-
-    override fun onStart() {
-        super.onStart()
-//        var currentUser = auth.getCurrentUser()
-//        Log.i("TP3ORT", currentUser?.email.toString())
     }
 
 }

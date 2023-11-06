@@ -17,6 +17,8 @@ class MyDataFragment : Fragment() {
     ): View? {
         _binding = FragmentMyDataBinding.inflate(inflater, container, false)
 
+        loadData()
+
         binding.buttonReturn.setOnClickListener {
             returnToHome()
         }
@@ -26,6 +28,18 @@ class MyDataFragment : Fragment() {
 
     private fun returnToHome() {
         requireActivity().onBackPressedDispatcher.onBackPressed()
+    }
+
+    private fun loadData() {
+        UserViewModel.getCurrentUser { user ->
+            if (user != null) {
+                binding.tvUserName.text = user.name
+                binding.tvUserSurname.text = user.surname
+                binding.tvUserDni.text = user.dni.toString()
+                binding.tvUserMail.text = user.mail
+                binding.tvUserAnswersCount.text = user.getResults().size.toString()
+            }
+        }
     }
 
 }

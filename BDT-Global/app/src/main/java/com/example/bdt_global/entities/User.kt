@@ -3,22 +3,23 @@ package com.example.bdt_global.entities
 import com.example.bdt_global.entities.responseEntities.ResultsResponse
 
 class User(
-    var nombre: String,
-    var apellido: String,
-    var dni: Int,
-    var mail: String
+    var uid: String = "",
+    var name: String = "",
+    var surname: String = "",
+    var dni: Int = -1,
+    var mail: String = ""
 ) {
 
-    private var myResults = mutableListOf<ResultsResponse>()
+    private var results: MutableList<ResultsResponse> = mutableListOf()
 
-    fun addResult(result: ResultsResponse) {
-        if (result != null) {
-            myResults.add(result)
+    fun addResults(newResults: ResultsResponse) {
+        if (newResults != null) {
+            results.add(newResults)
         }
     }
 
     fun getResults(): List<ResultsResponse> {
-        return myResults.toList()
+        return results.toList()
     }
 
 }

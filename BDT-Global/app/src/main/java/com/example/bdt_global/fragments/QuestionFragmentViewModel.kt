@@ -161,6 +161,7 @@ object QuestionFragmentViewModel : ViewModel() {
         lateinit var myResults: ResultsResponse
         viewModelScope.async {
             myResults = FormServices.getResults(currentFormPersonType, userAnswers)
+            UserViewModel.saveResults(myResults)
             questionScreenHistory.clear()
             userAnswers.clear()
         }.await()
