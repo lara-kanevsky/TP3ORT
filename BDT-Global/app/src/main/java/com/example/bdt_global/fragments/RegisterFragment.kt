@@ -29,15 +29,22 @@ class RegisterFragment : Fragment() {
     }
 
     private fun register() {
-        var name = binding.etUserName.text.toString()
-        var surname = binding.etUserSurname.text.toString()
-        var dni = binding.etUserDni.text.toString()
-        var mail = binding.etUserMail.text.toString()
-        var password = binding.etUserPassword.text.toString()
-        if (name.isNullOrBlank() || surname.isNullOrBlank() || dni.isNullOrBlank() || mail.isNullOrBlank() || password.isNullOrBlank()) {
+        val name = binding.etUserName.text.toString()
+        val surname = binding.etUserSurname.text.toString()
+        val dni = binding.etUserDni.text.toString()
+        val mail = binding.etUserMail.text.toString()
+        val password = binding.etUserPassword.text.toString()
+        val confirmPassword = binding.etUserConfirmPassword.text.toString()
+        if (name.isNullOrBlank() || surname.isNullOrBlank() || dni.isNullOrBlank() || mail.isNullOrBlank() || password.isNullOrBlank() || confirmPassword.isNullOrBlank()) {
             Snackbar.make(
                 binding.root,
                 "Complete todos los campos",
+                Snackbar.LENGTH_SHORT
+            ).show()
+        } else if (password != confirmPassword) {
+            Snackbar.make(
+                binding.root,
+                "Las contraseñas no coinciden",
                 Snackbar.LENGTH_SHORT
             ).show()
         } else {

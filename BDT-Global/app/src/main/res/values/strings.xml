@@ -3,6 +3,7 @@
     <string name="auth_button_log_in">Iniciar sesión</string>
     <string name="auth_button_log_out">Cerrar sesión</string>
     <string name="auth_button_register">Registrarse</string>
+    <string name="auth_hint_confirm_password">Repita la contraseña</string>
     <string name="auth_hint_dni">DNI</string>
     <string name="auth_hint_mail">Correo electrónico</string>
     <string name="auth_hint_name">Nombre</string>
@@ -12,8 +13,11 @@
     <string name="error_connection">No es posible establecer la conexión</string>
     <string name="error_edit_text_answer_box_is_completed">Complete todos los campos</string>
     <string name="error_radio_button_answer_box_is_completed">Seleccione una opción</string>
+    <string name="form_info_fragment_description">Te vamos a hacer preguntas sencillas sobre tus actividades, estilo de vida y uso de recursos.\nPara responder con mayor agilidad, ten a mano tus facturas de gas y electricidad, vas a necesitar algunos datos que aparecen allí.\n\nLa duración del formulario es de entre 10 y 15 minutos.\n\nTené en cuenta que estás midiendo tu huella del último año, es decir, de los últimos 12 meses.</string>
     <string name="form_info_fragment_button_return_to_home">Volver</string>
     <string name="home_fragment_title">Formulario para el cálculo de la huella de carbono</string>
+    <string name="item_result_date">Fecha:</string>
+    <string name="item_result_co2">Toneladas de CO2:</string>
     <string name="question_fragment_confirm_exit">¿Desea abandonar el formulario?</string>
     <string name="question_fragment_button_next">Siguiente</string>
     <string name="question_fragment_button_previous">Anterior</string>
@@ -32,6 +36,4 @@
     <string name="welcome_fragment_button_my_data">Mis datos</string>
     <string name="welcome_fragment_button_start_form">Iniciar formulario</string>
     <string name="welcome_fragment_confirm_log_out">¿Desea cerrar sesión?</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

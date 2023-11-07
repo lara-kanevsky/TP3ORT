@@ -125,11 +125,11 @@
 
     <Button
         android:id="@+id/buttonReturnToStart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="50dp"
+        android:layout_width="260dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/result_fragment_button_return_to_start"
-        android:textSize="20sp"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bdt_global.databinding.FragmentMyDataBinding
 
 class MyDataFragment : Fragment() {
@@ -34,10 +35,11 @@ class MyDataFragment : Fragment() {
         UserViewModel.getCurrentUser { user ->
             if (user != null) {
                 binding.tvUserName.text = user.name
-                binding.tvUserSurname.text = user.surname
-                binding.tvUserDni.text = user.dni.toString()
                 binding.tvUserMail.text = user.mail
-                binding.tvUserAnswersCount.text = user.getResults().size.toString()
+
+                binding.rvResults.setHasFixedSize(true)
+                binding.rvResults.layoutManager = LinearLayoutManager(context)
+                binding.rvResults.adapter = ResultsAdapter(user.getResults().toMutableList())
             }
         }
     }
