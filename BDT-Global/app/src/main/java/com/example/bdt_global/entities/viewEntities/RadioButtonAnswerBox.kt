@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.RadioButton
 import android.widget.RadioGroup
-import androidx.core.view.children
 import com.example.bdt_global.R.string
 import com.example.bdt_global.entities.Option
 import com.example.bdt_global.entities.StringOption

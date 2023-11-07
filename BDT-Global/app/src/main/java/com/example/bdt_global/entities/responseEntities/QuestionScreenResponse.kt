@@ -1,7 +1,7 @@
 package com.example.bdt_global.entities.responseEntities
 
-import com.example.bdt_global.entities.AnswerOptions
 import com.google.gson.annotations.SerializedName
+import com.example.bdt_global.entities.AnswerOptions
 import com.example.bdt_global.entities.Category
 import com.example.bdt_global.entities.NumberInput
 import com.example.bdt_global.entities.NumberInputs
