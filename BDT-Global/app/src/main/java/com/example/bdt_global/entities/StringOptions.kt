@@ -1,10 +1,15 @@
 package com.example.bdt_global.entities
 
-class StringOptions(
-    var strings: MutableList<StringOption>
-) : AnswerOptions() {
+class StringOptions() : AnswerOptions() {
 
+    private var strings = mutableListOf<StringOption>()
     private var answersCount: Int = 0
+
+    override fun addOption(option: Option) {
+        if (option is StringOption) {
+            strings.add(option)
+        }
+    }
 
     override fun getAnswersCount(): Int {
         return answersCount

@@ -45,9 +45,9 @@ class QuestionScreenResponse(
             if (optionsResponseList.isNullOrEmpty()) {
                 throw Error("The question has no answers")
             } else if (optionsResponseList[0].type == "RadioButton") {
-                answerOptions = StringOptions(mutableListOf())
+                answerOptions = StringOptions()
                 optionsResponseList.forEach {
-                    (answerOptions as StringOptions).strings.add(
+                    (answerOptions as StringOptions).addOption(
                         StringOption(
                             it.type,
                             it.optionId,
@@ -61,9 +61,9 @@ class QuestionScreenResponse(
                     )
                 }
             } else if (optionsResponseList[0].type == "EditText") {
-                answerOptions = NumberInputs(mutableListOf())
+                answerOptions = NumberInputs()
                 optionsResponseList.forEach {
-                    (answerOptions as NumberInputs).inputs.add(
+                    (answerOptions as NumberInputs).addOption(
                         NumberInput(
                             it.type,
                             it.optionId,

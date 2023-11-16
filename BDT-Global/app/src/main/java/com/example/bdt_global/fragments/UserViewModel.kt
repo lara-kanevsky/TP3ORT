@@ -66,7 +66,7 @@ object UserViewModel : ViewModel() {
     }
 
     fun logOut() {
-        return auth.signOut()
+        auth.signOut()
     }
 
 }

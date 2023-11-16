@@ -21,8 +21,10 @@ import androidx.navigation.fragment.findNavController
 import com.example.bdt_global.R
 import com.example.bdt_global.databinding.FragmentQuestionBinding
 import com.example.bdt_global.entities.AnswerOptions
+import com.example.bdt_global.entities.NumberInput
 import com.example.bdt_global.entities.NumberInputs
 import com.example.bdt_global.entities.QuestionScreen
+import com.example.bdt_global.entities.StringOption
 import com.example.bdt_global.entities.StringOptions
 import com.example.bdt_global.entities.viewEntities.AnswerBox
 import com.example.bdt_global.entities.viewEntities.EditTextAnswerBox
@@ -224,12 +226,12 @@ class QuestionFragment : Fragment() {
                 false
             ) as RadioButtonAnswerBox
 
-        for (option in options.strings) {
+        for (option in options.getOptions()) {
             val radioButton =
                 inflater.inflate(myRadioButtonItem, myAnswerBox, false) as RadioButton
             radioButton.text = option.label
             radioButton.id = option.optionId
-            radioButton.isChecked = option.isSelected
+            radioButton.isChecked = (option as StringOption).isSelected
 
             val tagValues = HashMap<String, Any>()
             tagValues[getString(R.string.view_tag_key_type)] = option.type
@@ -256,11 +258,11 @@ class QuestionFragment : Fragment() {
                 false
             ) as EditTextAnswerBox
 
-        for (option in options.inputs) {
+        for (option in options.getOptions()) {
             val editText = inflater.inflate(myEditTextItem, myAnswerBox, false) as EditText
             editText.hint = option.label
             editText.id = option.optionId
-            editText.setText(option.userInput)
+            editText.setText((option as NumberInput).userInput)
 
             val tagValues = HashMap<String, Any>()
             tagValues[getString(R.string.view_tag_key_type)] = option.type

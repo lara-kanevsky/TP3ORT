@@ -1,10 +1,15 @@
 package com.example.bdt_global.entities
 
-class NumberInputs(
-    var inputs: MutableList<NumberInput>
-) : AnswerOptions() {
+class NumberInputs() : AnswerOptions() {
 
+    private var inputs = mutableListOf<NumberInput>()
     private var answersCount: Int = 0
+
+    override fun addOption(option: Option) {
+        if (option is NumberInput) {
+            inputs.add(option)
+        }
+    }
 
     override fun getAnswersCount(): Int {
         return answersCount
